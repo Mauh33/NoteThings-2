@@ -18,3 +18,13 @@
   justify-content: end;
   align-items: center;
 }
+
+@include from(lg) {
+  .note-form-section {
+    width: 70%;
+  }
+
+  .button-bloc {
+    align-self: unset;
+  }
+}
