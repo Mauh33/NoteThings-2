@@ -60,3 +60,14 @@
   transition: transform 0.3s ease;
 }
 
+@include from(sm) {
+  .header {
+    grid-column: 1/10;
+  }
+}
+
+@include from(lg) {
+  .header {
+    grid-column: 1/11;
+  }
+}

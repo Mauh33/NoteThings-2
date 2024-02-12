@@ -56,6 +56,20 @@ p, label {
   @include flexbox($direction: column, $wrap: nowrap, $justify: space-between );
 }
 
-button-bloc {
+@include from(sm) {
+  #root {
+    @include grid(
+      $columns: repeat(10, 10vw)
+    )
+  }
 
+  .main-content {
+    grid-column: 3/7;
+  }
+}
+
+@include from(lg) {
+  .main-content {
+    grid-column: 3/9;
+  }
 }

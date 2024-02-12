@@ -23,3 +23,15 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+@include from(sm) {
+  .footer {
+    grid-column: 1/10;
+  }
+}
+
+@include from(lg) {
+  .footer {
+    grid-column: 1/11;
+  }
+}
