@@ -1,0 +1,25 @@
+@import '../variables';
+@import '../mixins';
+@import '../placeholders';
+
+.footer {
+  background-color: var(--third-color);
+  grid-column: 1/8;
+  grid-row: 11/14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 168px;
+
+  &.collasped {
+    grid-row: 14/17;
+  }
+}
+
+.footer-copyright {
+  color: white;
+  font-size: 24px;
+  width: 80%;
+  margin-bottom: 20px;
+  text-align: center;
+}

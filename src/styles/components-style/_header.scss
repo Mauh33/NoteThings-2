@@ -1,0 +1,10 @@
+@import '../mixins';
+@import '../variables';
+
+
+.header {
+  background-color: var(--primary-color);
+  grid-column: 1/8;
+  grid-row: 1/3;
+  @include flexbox($direction: column, $justify: space-evenly, $align: normal);
+}

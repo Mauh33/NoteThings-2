@@ -1,0 +1,13 @@
+@import "../variables";
+@import "../mixins";
+@import "../placeholders";
+
+section {
+  width: 100%;
+  height: fit-content;
+}
+
+.postIt-section {
+  width: 100%;
+  @include flexbox($direction: column, $justify: space-evenly)
+}

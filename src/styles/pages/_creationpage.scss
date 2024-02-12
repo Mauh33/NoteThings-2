@@ -1,0 +1,49 @@
+@import "../variables";
+@import "../mixins";
+@import "../placeholders";
+
+
+.note-form-section {
+  width: 100%;
+  margin: unset;
+}
+
+.collapse-bloc {
+  display: block;
+  width: 90%;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  @include flexbox($align: baseline)
+}
+
+.collapse-element {
+  width: 100%;
+  @include flexbox($direction: column, $justify: center, $align: center);
+}
+
+.arrow-bloc {
+  align-self: flex-end;
+  margin-right: 20px;
+}
+
+.toggle-open, .toggle-close {
+  cursor: pointer;
+  margin-right: 30px;
+  width: 19px;
+  height: 19px;
+}
+
+.toggle-close {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.toggle-open {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.button-bloc {
+  margin-top: 5px;
+}

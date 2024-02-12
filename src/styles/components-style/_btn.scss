@@ -1,0 +1,73 @@
+@import '../variables';
+@import '../placeholders';
+
+.button-bloc {
+  width: 90%;
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.btn-note {
+  width: 146px;
+  height: 36px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  @extend %btn-style;
+}
+
+.button-bloc p {
+  width: 80%;
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-size: var($ft-small);
+}
+
+.round-container {
+  width: 20%;
+  height: 77%;
+  background-color: var(--third-color);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 1px 2px 3px 0px rgba(39, 52, 106, 0.801);
+}
+
+.plus-sign::before,
+.plus-sign::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+}
+
+.plus-sign::before {
+  width: 12px;
+  height: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plus-sign::after {
+  width: 3px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plus-sign {
+  position: absolute;
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 24px;
+  display: inline-block;
+}
+

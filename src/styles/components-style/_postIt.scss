@@ -1,0 +1,46 @@
+@import '../variables';
+@import './../mixins';
+
+$max-width-Postit: 250px;
+$min-height-Postit: 250px;
+$postItWidth: min($max-width-Postit, 100%);
+
+.postIt-bloc {
+  width: $postItWidth;
+  min-height: $min-height-Postit;
+  height: auto;
+  background-color: rgba(175, 191, 255, 0.35);
+  border-radius: 14.04px;
+  border: 4.68px solid var(--third-color);
+  @include flexbox($direction: column, $wrap: wrap, $justify: flex-start);
+  flex-wrap: nowrap;
+  margin: 20px 0;
+}
+
+.postIt-title-bloc, .postIt-description-bloc {
+  width: 80%;
+  margin: 0 auto;
+
+  :first-child {
+    margin-right: 20px;
+  }
+}
+
+.postIt-title-bloc {
+  @include flexbox($justify: start);
+  height: 40px;
+  border-bottom: 3px solid var(--third-color);
+}
+
+.postIt-description-bloc {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.postIt-title, .postIt-description {
+  font-weight: 600;
+}
+
+
+
+

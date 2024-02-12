@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #FFB1AC;
+  --secondary-color: #F4E4E3;
+  --third-color: #AFBFFF;
+  --title-color: #423B3B;
+  --font-color: #23340d;
+  --element-color: #415BD3;
+
+  --title-font: 'jetBrains Mono', monospace;
+}
+
+$ft-small: 12px;
+$ft-medium: 14px;
+$ft-large: 16px;
+
+$max-xs: 426px;
+$max-sm: 767px;
+$max-md: 1024px;
+$max-lg: 1240px;
+$max-xl: false;
+
+$breakpoints: (
+  xs: $max-xs,
+  sm: $max-sm,
+  md: $max-md,
+  lg: $max-lg,
+  xl: $max-xl,
+);

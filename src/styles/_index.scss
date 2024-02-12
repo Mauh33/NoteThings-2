@@ -1,0 +1,56 @@
+@import "./variables";
+@import "./mixins";
+@import "./placeholders";
+
+* {
+  margin: 0;
+}
+
+img {
+  border-style: none;
+}
+
+body {
+  background-color: var(--secondary-color);
+  width: 100vw;
+  height: max-content;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: var(--title-font);
+  color: var(--title-color);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-left: 15%;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+p, label {
+  font-family: 'Ubuntu';
+}
+
+#root {
+  height: 100vh;
+  @include grid(
+    $rows: repeat(auto-fill, 8.59vh),
+    $columns: repeat(8, 12.5vw),
+    $row-gap: 20px,
+    $column-gap: 10px
+  )
+}
+
+.main-content {
+  grid-column: 2/7;
+  grid-row: 3/11;
+  @include flexbox($direction: column, $wrap: nowrap, $justify: space-between );
+}
+
