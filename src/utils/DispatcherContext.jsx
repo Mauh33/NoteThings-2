@@ -4,12 +4,12 @@ import { createContext, useContext, useState } from "react";
 const StateContext = createContext();
 
 export const DispatcherProvider = ({ children }) => {
-  const [isButtonVisible, setButtonVisibility] = useState(false);
+  const [isLinkVisible, setLinkVisibility] = useState(false);
   const [isFormVisible, setFormVisibility] = useState(false);
 
   const contextValue = {
-    isButtonVisible,
-    setButtonVisibility,
+    isLinkVisible,
+    setLinkVisibility,
     isFormVisible,
     setFormVisibility,
   };

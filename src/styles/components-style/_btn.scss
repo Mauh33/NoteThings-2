@@ -1,14 +1,6 @@
 @import '../variables';
 @import '../placeholders';
 
-.button-bloc {
-  width: 90%;
-  height: 40px;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
 .hide {
   display: none;
 }
@@ -16,9 +8,9 @@
 .btn-note {
   width: 146px;
   height: 36px;
-  margin-right: 20px;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   @extend %btn-style;
 }
 
@@ -35,6 +27,7 @@
   background-color: var(--third-color);
   border-radius: 50%;
   position: relative;
+  margin-right: 5px;
   box-shadow: 1px 2px 3px 0px rgba(39, 52, 106, 0.801);
 }
 
