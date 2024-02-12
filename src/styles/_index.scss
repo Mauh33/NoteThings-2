@@ -4,6 +4,8 @@
 
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 img {
@@ -12,7 +14,7 @@ img {
 
 body {
   background-color: var(--secondary-color);
-  width: 100vw;
+  width: 100%;
   height: max-content;
   overflow-x: hidden;
 }
@@ -26,11 +28,11 @@ h1 {
   font-size: 32px;
   font-weight: 500;
   margin-top: 10px;
-  margin-left: 15%;
 }
 
 h2 {
   font-size: 18px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -54,3 +56,6 @@ p, label {
   @include flexbox($direction: column, $wrap: nowrap, $justify: space-between );
 }
 
+button-bloc {
+
+}

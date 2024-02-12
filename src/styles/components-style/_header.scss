@@ -6,5 +6,57 @@
   background-color: var(--primary-color);
   grid-column: 1/8;
   grid-row: 1/3;
-  @include flexbox($direction: column, $justify: space-evenly, $align: normal);
+  @include flexbox($direction: column, $justify: space-evenly, $align: center);
 }
+
+.collapse-bloc {
+  display: block;
+  width: 90%;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  @include flexbox($align: baseline)
+}
+
+.collapse-element {
+  width: 100%;
+  @include flexbox($direction: column, $justify: center, $align: flex-start);
+}
+
+.arrow-bloc {
+  padding-top: 10px;
+  align-self: flex-end;
+  margin-right: 20px;
+}
+
+.link-bloc {
+  margin-top: 5px;
+  width: 90%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.toggle-open, .toggle-close {
+  cursor: pointer;
+  margin-right: 30px;
+  width: 19px;
+  height: 19px;
+}
+
+.toggle-close {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.toggle-open {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
