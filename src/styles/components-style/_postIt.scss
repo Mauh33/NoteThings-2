@@ -1,5 +1,6 @@
 @import '../variables';
 @import './../mixins';
+@import '../placeholders';
 
 $max-width-Postit: 250px;
 $min-height-Postit: 250px;
@@ -33,14 +34,22 @@ $postItWidth: min($max-width-Postit, 100%);
 }
 
 .postIt-description-bloc {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin: 12px;
+  @include flexbox($direction: column, $justify: start, $align: start);
+  width: 80%;
+  height: 80%;
 }
 
 .postIt-title, .postIt-description {
   font-weight: 600;
 }
 
+.postIt-description-p {
+  display: block;
+  width: 100%;
+  height: 100%;
+  word-wrap: break-word;
+}
 
 
 
