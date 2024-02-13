@@ -32,13 +32,13 @@
 }
 
 .plus-sign::before,
-.plus-sign::after {
+.plus-sign::after, .minus-sign::before {
   content: "";
   position: absolute;
   background-color: #fff;
 }
 
-.plus-sign::before {
+.plus-sign::before, .minus-sign::before {
   width: 12px;
   height: 3px;
   top: 50%;
@@ -55,12 +55,14 @@
 }
 
 .plus-sign {
+  transform: translate(-50%, -50%);
+}
+
+.plus-sign, .minus-sign {
   position: absolute;
   top: 50%;
   left: 51%;
-  transform: translate(-50%, -50%);
   color: #fff;
   font-size: 24px;
   display: inline-block;
 }
-

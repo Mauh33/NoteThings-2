@@ -5,18 +5,21 @@ function Listpage() {
 
   const [data, setData] = useState([]);
 
-    useEffect(() => {
+    let notesFromLocalStorage = window.localStorage.getItem("notes");
 
-      const notesFromLocalStorage = JSON.parse(window.localStorage.getItem("notes"));
+    useEffect(() => {
 
       if (notesFromLocalStorage) {
 
-        const notesArray = Object.entries(notesFromLocalStorage).map(([key, value]) => ({ id: key, ...value }));
+        const allNotesParsed = JSON.parse(notesFromLocalStorage);
+        const notesArray = Object.entries(allNotesParsed).map(([key, value]) => ({ id: key, ...value }));
         setData(notesArray);
 
       }
 
-    }, []);
+    }, [notesFromLocalStorage]);
+
+
 
   return (
     <section className='postIt-section'>
@@ -33,8 +36,7 @@ function Listpage() {
           You don't have any notes for the moment
           </p>
     }
-  </section>
-  );
-}
+    </section>
+  )}
 
-export default Listpage;
+  export default Listpage;
