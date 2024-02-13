@@ -13,7 +13,7 @@ function PostIt({
       <div className='postIt-description-bloc'>
         <p className='postIt-description'>Task description :</p>
         <br />
-        <p className=''>{description}</p>
+        <p className='postIt-description-p'>{description}</p>
       </div>
     </div>
   );

@@ -1,47 +1,70 @@
 import { useState } from "react";
 import "../../styles/components-style/_formNote.scss";
 
-function FormNote() {
+const generateUniqueKey = () => {
+  const timeStamp = new Date().getTime();
+  const min = 1000;
+  const max = 9999;
+  const randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+  return `${timeStamp}-${randomNumber}`;
+}
 
-  const [data, setData] = useState({});
+const FormNote = () => {
+  const [formData, setFormData] = useState({
+    "title": "",
+    "noteText": ""
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const title = e.target.title;
-    const noteText = e.target.noteText;
-    setData(values => ({...values, [title]: noteText}))
+
+    const noteId = generateUniqueKey();
+
+    const existingNotes = JSON.parse(window.localStorage.getItem("notes")) || {};
+    existingNotes[noteId] = formData;
+
+    window.localStorage.setItem("notes", JSON.stringify(existingNotes));
+
+    console.log("data sent to localStorage", formData);
+
+    setFormData({
+      title: "",
+      noteText: ""
+    });
+
+    alert("your note has been added to your list, click on NoteThings to have a view");
   }
 
   return (
-    <form action="" method="get" className="form-bloc">
-      <label >
-        A title for your note :
-      <input
-        type="text"
-        name="title"
-        value={title}
-        placeholder="filter email"
-        onChange={(e) => setData(e.target.title)}
+    <form action="" method="get" className="form-bloc" onSubmit={handleSubmit}>
+      <label>
+        A title for your note:
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value={formData.title}
+          placeholder="Enter title"
+          onChange={(e) => setFormData({...formData, title: e.target.value})}
         />
       </label>
-      <label >
-        A description for your note :
-      <textarea
-        placeholder="do category to sort email topic"
-        name="text"
-        value={noteText}
-        onChange={(e) => setData(e.target.noteText)}
-      >
-      </textarea>
+      <label>
+        A description for your note:
+        <textarea
+          placeholder="Enter description"
+          name="text"
+          value={formData.noteText}
+          onChange={(e) => setFormData({...formData, noteText: e.target.value})}
+        />
       </label>
       <div className="button-bloc">
-          <button type="submit" className="btn-note">
+        <button type="submit" className="btn-note">
           <p>Add a note</p>
-            <div className="round-container">
-              <div className="plus-sign"></div>
-            </div>
-          </button>
-        </div>
+          <div className="round-container">
+            <div className="plus-sign"></div>
+          </div>
+        </button>
+      </div>
     </form>
   );
 }
