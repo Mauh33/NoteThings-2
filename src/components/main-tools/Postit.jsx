@@ -8,17 +8,28 @@ function PostIt({
 }) {
 
   const [visibleElement, setVisibility] = useState(true);
+  const existingNote = JSON.parse(window.localStorage.getItem("notes")) || {};
 
-  const removeElement = () => {
-    const existingNote = JSON.parse(window.localStorage.getItem("notes")) || {};
-    delete existingNote[id];
-    window.localStorage.setItem("notes", JSON.stringify(existingNote));
-    setVisibility(false);
+  const removeElement = (postId) => {
+
+    console.log("on rentre ?");
+    const updatedNote = {...existingNote};
+    delete updatedNote[postId];
+    window.localStorage.setItem("notes", JSON.stringify(updatedNote));
+    setVisibility(!visibleElement);
+
   }
 
   useEffect(()=> {
+
+    if (id && existingNote[id]) {
     removeElement()
+    }
   }, [id])
+
+      if(!existingNote[id]) {
+        return null;
+      }
 
   return (
     <div className='postIt-bloc'>
@@ -35,7 +46,7 @@ function PostIt({
         <button
           type="button"
           className="btn-note"
-          onClick={removeElement}
+          onClick={() => removeElement(id)}
           >
           <p>delete note</p>
           <div className="round-container">

@@ -24,9 +24,10 @@ function Listpage() {
   return (
     <section className='postIt-section'>
       {data.length > 0 ? (
-          data.map((item, index) => (
+          data.map((item) => (
           <PostIt
-            key={index}
+            key={item.id}
+            id={item.id}
             title={item.title}
             description={item.noteText}
           />

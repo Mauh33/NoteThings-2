@@ -31,6 +31,7 @@ const FormNote = () => {
       title: "",
       noteText: ""
     });
+
     alert("your note has been added to your list, click on NoteThings to have a view");
   }
 
