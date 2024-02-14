@@ -41,6 +41,7 @@ const FormNote = ({onAdd}) => {
           id="title"
           value={formData.title}
           placeholder="Enter title"
+          maxLength={30}
           onChange={(e) => setFormData({...formData, title: e.target.value})}
         />
       </label>
@@ -50,6 +51,7 @@ const FormNote = ({onAdd}) => {
           placeholder="Enter description"
           name="text"
           value={formData.noteText}
+          maxLength={120}
           onChange={(e) => setFormData({...formData, noteText: e.target.value})}
         />
       </label>
