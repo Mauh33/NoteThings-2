@@ -13,9 +13,9 @@ $postItWidth: min($max-width-Postit, 100%);
   background-color: rgba(175, 191, 255, 0.35);
   border-radius: 14.04px;
   border: 4.68px solid var(--third-color);
-  @include flexbox($direction: column, $wrap: wrap, $justify: flex-start);
+  @include flexbox($direction: column, $wrap: wrap, $justify: space-between);
   flex-wrap: nowrap;
-  margin: 20px 0;
+  margin: 20px;
 }
 
 .postIt-title-bloc, .postIt-description-bloc {
@@ -29,8 +29,21 @@ $postItWidth: min($max-width-Postit, 100%);
 
 .postIt-title-bloc {
   @include flexbox($justify: start);
-  height: 40px;
+  height: auto;
+  margin: 10px;
   border-bottom: 3px solid var(--third-color);
+}
+
+.postIt-title {
+  margin-right: unset;
+  display: block;
+  width: 60px;
+}
+
+.postIt-title-p {
+  word-wrap: break-word;
+  display: block;
+  width: 80%;
 }
 
 .postIt-description-bloc {
