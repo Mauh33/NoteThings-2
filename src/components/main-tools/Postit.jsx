@@ -24,7 +24,7 @@ function PostIt({
       <div className='postIt-bloc'>
         <div className='postIt-title-bloc'>
           <p className='postIt-title'>Title :</p>
-          <p className=''>{title}</p>
+          <p className='postIt-title-p'>{title}</p>
         </div>
         <div className='postIt-description-bloc'>
           <p className='postIt-description'>Task description :</p>
