@@ -27,7 +27,11 @@ h1, h2 {
 h1 {
   font-size: 32px;
   font-weight: 500;
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+li {
+  list-style: none;
 }
 
 h2 {
@@ -36,7 +40,9 @@ h2 {
   margin-bottom: 20px;
 }
 
-p, label {
+
+
+p, label, a {
   font-family: 'Ubuntu';
 }
 
@@ -52,9 +58,8 @@ p, label {
 
 
 .main-content {
-  grid-column: 2/7;
-  grid-column: 3/7;
-  grid-row: 3/11;
+  grid-column: 2/10;
+  grid-row: 4/11;
   @include flexbox($direction: column, $wrap: nowrap, $justify: space-between );
 }
 

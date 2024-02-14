@@ -47,16 +47,32 @@ export default function Header() {
                 onClick={toggleLinkVisibility}
               />
             </div>
-            <div className={`link-bloc ${isLinkVisible ? "" : "hide"}`}>
+            <nav className={`link-bloc ${isLinkVisible ? "" : "hide"}`}>
+              <li>
+            <Link className="creation-link">lorem ipsum link</Link>
+              </li>
+              <li>
             <Link className='creation-link' to='/creation-of-note'>
-          Go to creation note page
-        </Link>
-            </div>
+              Go to creation note page
+            </Link>
+              </li>
+            </nav>
           </div>
         ) : (
+          <nav className="link-bloc">
+            <ul>
+              <li>
+          <Link className="creation-link">
+          lorem ipsum link
+        </Link>
+              </li>
+              <li>
           <Link className='creation-link' to='/creation-of-note' onClick={toggleLinkVisibility}>
           Go to creation note page
         </Link>
+              </li>
+        </ul>
+          </nav>
         )}
       </div>
       </header>
