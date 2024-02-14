@@ -5,21 +5,19 @@ function Listpage() {
 
   const [data, setData] = useState([]);
 
-    let notesFromLocalStorage = window.localStorage.getItem("notes");
-
     useEffect(() => {
 
-      if (notesFromLocalStorage) {
+        const notesFromLocalStorage = JSON.parse(window.localStorage.getItem("notes")) || [];
+        setData(notesFromLocalStorage);
 
-        const allNotesParsed = JSON.parse(notesFromLocalStorage);
-        const notesArray = Object.entries(allNotesParsed).map(([key, value]) => ({ id: key, ...value }));
-        setData(notesArray);
-
-      }
-
-    }, [notesFromLocalStorage]);
+    }, []);
 
 
+  const handleDeleteNote = (noteId) => {
+    const updatedNotes = data.filter((note) => note.id !== noteId);
+    setData(updatedNotes);
+    window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
+  };
 
   return (
     <section className='postIt-section'>
@@ -30,6 +28,7 @@ function Listpage() {
             id={item.id}
             title={item.title}
             description={item.noteText}
+            onDelete={handleDeleteNote}
           />
         ))
       )

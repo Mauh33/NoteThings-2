@@ -16,6 +16,13 @@ function Creationpage({title}) {
     setFormVisibility(!isFormVisible);
   };
 
+  const handleAddNote = (newNote) => {
+
+      const existingNotes = JSON.parse(window.localStorage.getItem("notes")) || [];
+      const updatedNotes = [...existingNotes, newNote];
+      window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
+      console.log("New note added:", newNote);
+  };
 
   return (
     <>
@@ -33,7 +40,7 @@ function Creationpage({title}) {
               </div>
             </button>
           </div>
-      {isFormVisible && <FormNote />}
+      {isFormVisible && <FormNote onAdd={handleAddNote} />}
     </section>
   </>
   )

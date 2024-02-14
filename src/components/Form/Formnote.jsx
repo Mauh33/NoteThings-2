@@ -9,7 +9,7 @@ const generateUniqueKey = () => {
   return `${timeStamp}-${randomNumber}`;
 }
 
-const FormNote = () => {
+const FormNote = ({onAdd}) => {
   const [formData, setFormData] = useState({
     "title": "",
     "noteText": ""
@@ -19,20 +19,16 @@ const FormNote = () => {
     e.preventDefault();
 
     const noteId = generateUniqueKey();
+    const newNote = { id: noteId, ...formData };
 
-    const existingNotes = JSON.parse(window.localStorage.getItem("notes")) || {};
-    existingNotes[noteId] = formData;
-
-    window.localStorage.setItem("notes", JSON.stringify(existingNotes));
-
-    console.log("data sent to localStorage", formData);
+    onAdd(newNote);
 
     setFormData({
       title: "",
       noteText: ""
     });
 
-    alert("your note has been added to your list, click on NoteThings to have a view");
+    alert("Your note has been added to your list, click on NoteThings to have a view");
   }
 
   return (
@@ -70,3 +66,28 @@ const FormNote = () => {
 }
 
 export default FormNote;
+
+
+/*
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const noteId = generateUniqueKey();
+
+    const existingNotes = JSON.parse(window.localStorage.getItem("notes")) || [];
+    const newNote = {id: noteId, ...formData};
+    const updatedNotes = [...existingNotes, newNote];
+    // existingNotes[noteId] = formData;
+
+    window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
+
+    console.log("data sent to localStorage", formData);
+
+    setFormData({
+      title: "",
+      noteText: ""
+    });
+
+    alert("your note has been added to your list, click on NoteThings to have a view");
+  } */
