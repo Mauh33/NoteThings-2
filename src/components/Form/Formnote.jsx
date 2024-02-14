@@ -66,28 +66,3 @@ const FormNote = ({onAdd}) => {
 }
 
 export default FormNote;
-
-
-/*
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const noteId = generateUniqueKey();
-
-    const existingNotes = JSON.parse(window.localStorage.getItem("notes")) || [];
-    const newNote = {id: noteId, ...formData};
-    const updatedNotes = [...existingNotes, newNote];
-    // existingNotes[noteId] = formData;
-
-    window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
-
-    console.log("data sent to localStorage", formData);
-
-    setFormData({
-      title: "",
-      noteText: ""
-    });
-
-    alert("your note has been added to your list, click on NoteThings to have a view");
-  } */

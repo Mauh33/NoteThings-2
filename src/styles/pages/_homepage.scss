@@ -8,12 +8,36 @@ section {
 }
 
 .postIt-section {
-  width: 100%;
+  width: 300px;
   @include flexbox($direction: column, $justify: space-evenly)
+}
+
+
+@include from(xs) {
+  .postIt-section {
+    @include flexbox($direction: column, $justify: center);
+    width: 300px;
+  }
+}
+
+@include from(sm) {
+  .postIt-section {
+    @include flexbox($direction: row, $justify: center, $wrap: wrap);
+  }
+}
+
+@include from(md) {
+  .postIt-section {
+    @include flexbox($direction: row, $justify: space-evenly, $wrap: wrap);
+    width: 800px;
+  }
 }
 
 @include from(lg) {
   .postIt-section {
-    @include flexbox($direction: row, $justify: space-between);
+    @include flexbox($direction: row, $justify: space-between, $wrap: wrap);
+    width: 1000px;
   }
 }
+
+
