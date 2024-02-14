@@ -7,25 +7,28 @@ function Listpage() {
 
     useEffect(() => {
 
-      const notesFromLocalStorage = JSON.parse(window.localStorage.getItem("notes"));
-
-      if (notesFromLocalStorage) {
-
-        const notesArray = Object.entries(notesFromLocalStorage).map(([key, value]) => ({ id: key, ...value }));
-        setData(notesArray);
-
-      }
+        const notesFromLocalStorage = JSON.parse(window.localStorage.getItem("notes")) || [];
+        setData(notesFromLocalStorage);
 
     }, []);
+
+
+  const handleDeleteNote = (noteId) => {
+    const updatedNotes = data.filter((note) => note.id !== noteId);
+    setData(updatedNotes);
+    window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
+  };
 
   return (
     <section className='postIt-section'>
       {data.length > 0 ? (
-          data.map((item, index) => (
+          data.map((item) => (
           <PostIt
-            key={index}
+            key={item.id}
+            id={item.id}
             title={item.title}
             description={item.noteText}
+            onDelete={handleDeleteNote}
           />
         ))
       )
@@ -33,8 +36,7 @@ function Listpage() {
           You don't have any notes for the moment
           </p>
     }
-  </section>
-  );
-}
+    </section>
+  )}
 
-export default Listpage;
+  export default Listpage;
