@@ -59,3 +59,38 @@
   transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
+
+@include from(sm) {
+
+  .header {
+    grid-column: 1/11;
+  }
+}
+
+@include from(md) {
+
+  h1 {
+    display: block;
+    width: 220px;
+    height: 65px;
+  }
+
+  .header {
+    flex-direction: row;
+    flex-wrap: no wrap;
+    justify-content: space-around;
+  }
+
+  .collapse-bloc {
+    align-items: center;
+    width: auto;
+    margin-right: unset;
+    margin-left: unset;
+  }
+}
+
+@include from(lg) {
+  .header {
+    grid-column: 1/11;
+  }
+}

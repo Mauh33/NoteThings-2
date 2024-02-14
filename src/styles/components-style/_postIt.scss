@@ -2,6 +2,7 @@
 @import './../mixins';
 @import '../placeholders';
 
+
 $max-width-Postit: 250px;
 $min-height-Postit: 250px;
 $postItWidth: min($max-width-Postit, 100%);
@@ -28,7 +29,7 @@ $postItWidth: min($max-width-Postit, 100%);
 }
 
 .postIt-title-bloc {
-  @include flexbox($justify: start);
+  @include flexbox($justify: start, $wrap: wrap);
   height: auto;
   margin: 10px;
   border-bottom: 3px solid var(--third-color);
@@ -67,4 +68,3 @@ $postItWidth: min($max-width-Postit, 100%);
 .button-bloc {
   margin: 0 12px 12px 0;
 }
-
