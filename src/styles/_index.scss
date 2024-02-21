@@ -13,21 +13,21 @@ img {
 }
 
 body {
-  background-color: var(--secondary-color);
+  background-color: $secondary-color;
   width: 100%;
   height: max-content;
   overflow-x: hidden;
 }
 
-h1, h2 {
-  font-family: var(--title-font);
-  color: var(--title-color);
+h1,
+h2 {
+  font-family: $title-font;
+  color: $title-color;
 }
 
 h1 {
   font-size: 32px;
   font-weight: 500;
-  margin-top: 20px;
 }
 
 li {
@@ -40,10 +40,10 @@ h2 {
   margin-bottom: 20px;
 }
 
-
-
-p, label, a {
-  font-family: 'Ubuntu';
+p,
+label,
+a {
+  font-family: "Ubuntu";
 }
 
 #root {
@@ -53,28 +53,26 @@ p, label, a {
     $columns: repeat(10, auto),
     $row-gap: 20px,
     $column-gap: 10px
-  )
+  );
 }
-
 
 .main-content {
   grid-column: 2/10;
   grid-row: 4/11;
-  @include flexbox($direction: column, $wrap: nowrap, $justify: space-between );
+  @include flexbox($direction: column, $wrap: nowrap, $justify: space-between);
 }
 
 @include from(sm) {
-  .main-content{
+  .main-content {
     grid-column: 1/10;
   }
 }
 
 @include from(md) {
-    .main-content {
-      grid-column: 2/10;
-    }
+  .main-content {
+    grid-column: 2/10;
   }
-
+}
 
 @include from(lg) {
   .main-content {

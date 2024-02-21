@@ -1,9 +1,9 @@
-@import '../variables';
-@import '../mixins';
-@import '../placeholders';
+@import "../variables";
+@import "../mixins";
+@import "../placeholders";
 
 .footer {
-  background-color: var(--third-color);
+  background-color: $third-color;
   grid-column: 1/11;
   grid-row: 11/14;
   display: flex;

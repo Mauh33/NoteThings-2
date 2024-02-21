@@ -1,13 +1,11 @@
-:root {
-  --primary-color: #FFB1AC;
-  --secondary-color: #F4E4E3;
-  --third-color: #AFBFFF;
-  --title-color: #423B3B;
-  --font-color: #23340d;
-  --element-color: #415BD3;
+$primary-color: #ffb1ac;
+$secondary-color: #f4e4e3;
+$third-color: #afbfff;
+$title-color: #423b3b;
+$font-color: #23340d;
+$element-color: #415bd3;
 
-  --title-font: 'jetBrains Mono', monospace;
-}
+$title-font: "jetBrains Mono", monospace;
 
 $ft-small: 12px;
 $ft-medium: 14px;

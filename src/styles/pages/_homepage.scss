@@ -9,9 +9,8 @@ section {
 
 .postIt-section {
   width: 300px;
-  @include flexbox($direction: column, $justify: space-evenly)
+  @include flexbox($direction: column, $justify: space-evenly);
 }
-
 
 @include from(xs) {
   .postIt-section {
@@ -39,5 +38,3 @@ section {
     width: 1000px;
   }
 }
-
-

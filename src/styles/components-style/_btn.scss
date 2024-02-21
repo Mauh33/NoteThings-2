@@ -1,5 +1,5 @@
-@import '../variables';
-@import '../placeholders';
+@import "../variables";
+@import "../placeholders";
 
 .hide {
   display: none;
@@ -16,7 +16,7 @@
 
 .button-bloc p {
   width: 80%;
-  color: var(--secondary-color);
+  color: $secondary-color;
   font-weight: 600;
   font-size: var($ft-small);
 }
@@ -24,7 +24,7 @@
 .round-container {
   width: 20%;
   height: 77%;
-  background-color: var(--third-color);
+  background-color: $third-color;
   border-radius: 50%;
   position: relative;
   margin-right: 5px;
@@ -32,13 +32,15 @@
 }
 
 .plus-sign::before,
-.plus-sign::after, .minus-sign::before {
+.plus-sign::after,
+.minus-sign::before {
   content: "";
   position: absolute;
   background-color: #fff;
 }
 
-.plus-sign::before, .minus-sign::before {
+.plus-sign::before,
+.minus-sign::before {
   width: 12px;
   height: 3px;
   top: 50%;
@@ -58,7 +60,8 @@
   transform: translate(-50%, -50%);
 }
 
-.plus-sign, .minus-sign {
+.plus-sign,
+.minus-sign {
   position: absolute;
   top: 50%;
   left: 51%;

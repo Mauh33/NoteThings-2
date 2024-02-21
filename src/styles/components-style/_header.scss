@@ -1,80 +1,89 @@
-@import '../mixins';
-@import '../variables';
-
+@import "../mixins";
+@import "../variables";
 
 .header {
-  background-color: var(--primary-color);
-  grid-column: 1/11;
-  grid-row: 1/4;
-  @include flexbox($direction: column, $justify: flex-start, $align: center);
-}
-
-.collapse-bloc {
-  display: block;
-  width: 90%;
-  height: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  @include flexbox($align: baseline)
-}
-
-.collapse-element {
-  width: 100%;
-  @include flexbox($direction: column, $justify: center, $align: flex-start, $wrap: wrap);
-}
-
-.arrow-bloc {
-  padding-top: 10px;
-  align-self: flex-end;
-  margin-right: 20px;
-}
-
-.link-bloc {
-  margin-top: 5px;
-  width: 90%;
-  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10vh;
+  background-color: $primary-color;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  padding-bottom: 10px;
+  justify-content: space-around;
+  align-items: center;
 }
 
-// .link-bloc ul {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-.hide {
+.menuToggleCheckbox {
   display: none;
 }
 
-.toggle-open, .toggle-close {
+.menuToggleLabel {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: relative;
   cursor: pointer;
-  margin-right: 30px;
-  width: 19px;
-  height: 19px;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: $element-color;
+    margin-bottom: 8px;
+    transform-origin: 4px 0;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      opacity 0.5s ease;
+  }
+
+  span:nth-child(1) {
+    transform-origin: 0% 0%;
+  }
+
+  span:nth-child(3) {
+    transform-origin: 0% 100%;
+  }
+
+  .menuToggleCheckbox:checked + & {
+    span:nth-child(1) {
+      transform: rotate(41deg) translate(-4px, -2px);
+    }
+
+    span:nth-child(2) {
+      transform: rotate(-39deg) translate(-7px, 2px);
+    }
+
+    span:nth-child(3) {
+      opacity: 0;
+      transition: transform 0.2s ease-out, opacity 0.2s ease-in;
+    }
+  }
 }
 
-.toggle-close {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
-}
+.navigation {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: $primary-color;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.toggle-open {
-  transform: rotate(0deg);
-  transition: transform 0.3s ease;
+  .menuToggleCheckbox:checked ~ & {
+    height: 5rem; /* Ajustez cette valeur au besoin */
+  }
 }
 
 @include from(sm) {
-
   .header {
     grid-column: 1/11;
   }
 }
 
 @include from(md) {
-
   h1 {
     display: block;
     width: 220px;
@@ -85,13 +94,6 @@
     flex-direction: row;
     flex-wrap: no wrap;
     justify-content: space-around;
-  }
-
-  .collapse-bloc {
-    align-items: center;
-    width: auto;
-    margin-right: unset;
-    margin-left: unset;
   }
 }
 
