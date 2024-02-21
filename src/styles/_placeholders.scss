@@ -1,5 +1,4 @@
-@import './variables';
-
+@import "./variables";
 
 // Flexbox Patterns
 
@@ -56,7 +55,6 @@
 
 %btn-style {
   border-radius: 17px;
-  background-color: var(--element-color);
+  background-color: $element-color;
   border: none;
 }
-

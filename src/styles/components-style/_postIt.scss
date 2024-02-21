@@ -1,7 +1,6 @@
-@import '../variables';
-@import './../mixins';
-@import '../placeholders';
-
+@import "../variables";
+@import "./../mixins";
+@import "../placeholders";
 
 $max-width-Postit: 250px;
 $min-height-Postit: 250px;
@@ -13,13 +12,14 @@ $postItWidth: min($max-width-Postit, 100%);
   height: auto;
   background-color: rgba(175, 191, 255, 0.35);
   border-radius: 14.04px;
-  border: 4.68px solid var(--third-color);
+  border: 4.68px solid $third-color;
   @include flexbox($direction: column, $wrap: wrap, $justify: space-between);
   flex-wrap: nowrap;
   margin: 20px;
 }
 
-.postIt-title-bloc, .postIt-description-bloc {
+.postIt-title-bloc,
+.postIt-description-bloc {
   width: 80%;
   margin: 0 auto;
 
@@ -32,7 +32,7 @@ $postItWidth: min($max-width-Postit, 100%);
   @include flexbox($justify: start, $wrap: wrap);
   height: auto;
   margin: 10px;
-  border-bottom: 3px solid var(--third-color);
+  border-bottom: 3px solid $third-color;
 }
 
 .postIt-title {
@@ -54,7 +54,8 @@ $postItWidth: min($max-width-Postit, 100%);
   height: 80%;
 }
 
-.postIt-title, .postIt-description {
+.postIt-title,
+.postIt-description {
   font-weight: 600;
 }
 
