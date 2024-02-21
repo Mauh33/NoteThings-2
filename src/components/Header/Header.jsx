@@ -1,5 +1,4 @@
 import "../../styles/components-style/_header.scss";
-import ArrowBack from "../../assets/arrow_back.png";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -9,12 +8,12 @@ export default function Header() {
         <h1>
           <Link to='/'>NoteThings</Link>
         </h1>
-        <div className='menuToggle'>
-          <input type='checkbox' name='' id='' />
+        <input type='checkbox' id='menuToggle' className='menuToggleCheckbox' />
+        <label htmlFor='menuToggle' className='menuToggleLabel'>
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </label>
         <nav className='navigation'>
           <ul className='menu'>
             <li>
