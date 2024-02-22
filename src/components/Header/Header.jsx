@@ -23,6 +23,13 @@ export default function Header() {
             </li>
           </ul>
         </nav>
+        <ul className='menu-desktop'>
+          <li>
+            <Link className='link' to='/creation-of-note'>
+              Go to creation note page
+            </Link>
+          </li>
+        </ul>
       </header>
     </>
   );

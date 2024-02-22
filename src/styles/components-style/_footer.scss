@@ -2,36 +2,22 @@
 @import "../mixins";
 @import "../placeholders";
 
-.footer {
+footer {
   background-color: $third-color;
-  grid-column: 1/11;
-  grid-row: 11/14;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 168px;
-
-  &.collasped {
-    grid-row: 14/17;
-  }
+  height: 100px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 .footer-copyright {
   color: white;
-  font-size: 24px;
+  font-size: $ft-small;
   width: 80%;
   margin-bottom: 20px;
   text-align: center;
-}
-
-@include from(sm) {
-  .footer {
-    grid-column: 1/10;
-  }
-}
-
-@include from(lg) {
-  .footer {
-    grid-column: 1/11;
-  }
 }

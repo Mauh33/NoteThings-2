@@ -3,17 +3,19 @@
 @import "../placeholders";
 
 .note-form-section {
-  width: 90%;
-  margin: unset;
+  width: 80%;
+  margin: auto;
+  max-height: max-content;
+  height: 60vh;
   @extend %begin-flex-column;
-  @extend %flex-center-template;
+  @extend %flex-column-template-evenly;
 }
 
 .form-bloc {
   margin-top: 20px;
   width: 100%;
   max-width: 582px;
-  max-height: 242px;
+  max-height: 500px;
   height: 230px;
   border-radius: 10px;
   background-color: $third-color;
@@ -44,8 +46,5 @@ textarea {
 @include from(lg) {
   textarea {
     width: 300px;
-  }
-  .note-form-section {
-    width: 70%;
   }
 }

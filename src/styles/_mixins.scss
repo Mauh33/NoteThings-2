@@ -1,5 +1,5 @@
-@import './variables';
-@import './placeholders';
+@import "./variables";
+@import "./placeholders";
 
 @mixin grid(
   $rows: null,
@@ -40,7 +40,7 @@
   $justify: center,
   $align: center,
   $gap: 0,
-  $child-placeholder: null,
+  $child-placeholder: null
 ) {
   display: flex;
   flex-direction: $direction;
@@ -68,20 +68,12 @@
 }
 
 @mixin from($media) {
-  @if $media == sm {
-    @media only screen and (min-width: ($max-xs + 1)) {
-      @content;
-    }
-  } @else if $media == md {
-    @media only screen and (min-width: ($max-sm + 1)) {
+  @if $media == md {
+    @media only screen and (min-width: #{$max-sm + 1}) {
       @content;
     }
   } @else if $media == lg {
-    @media only screen and (min-width: ($max-md + 1)) {
-      @content;
-    }
-  } @else if $media == xl {
-    @media only screen and (min-width: ($max-lg + 1)) {
+    @media only screen and (min-width: #{$max-md + 1}) {
       @content;
     }
   }

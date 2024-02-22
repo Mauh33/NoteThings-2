@@ -1,16 +1,19 @@
 @import "../mixins";
 @import "../variables";
 
-.header {
-  position: fixed;
+header {
+  width: 100%;
   top: 0;
   left: 0;
-  right: 0;
-  height: 10vh;
+  height: 14vh;
   background-color: $primary-color;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+h1 {
+  font-size: $title-small-size;
 }
 
 .menuToggleCheckbox {
@@ -19,8 +22,8 @@
 
 .menuToggleLabel {
   display: block;
-  width: 40px;
-  height: 32px;
+  width: 3rem;
+  height: 2.9rem;
   position: relative;
   cursor: pointer;
 
@@ -30,7 +33,7 @@
     height: 4px;
     background-color: $element-color;
     margin-bottom: 8px;
-    transform-origin: 4px 0;
+    transform-origin: 10px 0;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
       opacity 0.5s ease;
   }
@@ -45,11 +48,11 @@
 
   .menuToggleCheckbox:checked + & {
     span:nth-child(1) {
-      transform: rotate(41deg) translate(-4px, -2px);
+      transform: rotate(40deg) translate(10px, 1px);
     }
 
     span:nth-child(2) {
-      transform: rotate(-39deg) translate(-7px, 2px);
+      transform: rotate(-40deg) translate(-4px, 7px);
     }
 
     span:nth-child(3) {
@@ -57,6 +60,10 @@
       transition: transform 0.2s ease-out, opacity 0.2s ease-in;
     }
   }
+}
+
+.navigation .link {
+  opacity: 0;
 }
 
 .navigation {
@@ -70,35 +77,80 @@
   transition: height 0.3s ease;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 
   .menuToggleCheckbox:checked ~ & {
-    height: 5rem; /* Ajustez cette valeur au besoin */
+    height: 5rem;
+    .link {
+      opacity: 1;
+      font-weight: 600;
+      transition: opacity 0.3s ease-out;
+    }
   }
 }
 
-@include from(sm) {
-  .header {
-    grid-column: 1/11;
-  }
+.menu a {
+  font-size: $ft-small;
+}
+
+.menu-desktop {
+  display: none;
 }
 
 @include from(md) {
   h1 {
     display: block;
     width: 220px;
-    height: 65px;
   }
 
-  .header {
+  header {
     flex-direction: row;
-    flex-wrap: no wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
+  }
+
+  .navigation,
+  .menuToggleLabel,
+  .menuToggleCheckbox {
+    display: none;
+  }
+
+  .menu-desktop {
+    display: block;
+  }
+
+  .menu-desktop a {
+    font-size: $ft-medium;
+    position: relative;
+  }
+}
+
+@include from(md) {
+  header {
+    justify-content: space-evenly;
   }
 }
 
 @include from(lg) {
-  .header {
-    grid-column: 1/11;
+  .menu-desktop a::before {
+    content: "";
+    background-color: #a6b6f5;
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: all 0.4s ease-in;
+  }
+
+  a:hover::before {
+    bottom: 0;
+    width: 100%;
+  }
+
+  .menu-desktop a:hover {
+    cursor: pointer;
+    font-weight: 600;
   }
 }

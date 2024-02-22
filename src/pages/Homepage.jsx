@@ -19,8 +19,8 @@ function HomePage({ title }) {
 
   return (
     <>
-      <h2>{title}</h2>
       <section className='postIt-section'>
+        <h2>{title}</h2>
         {data.length > 0 ? (
           data.map(item => (
             <PostIt
