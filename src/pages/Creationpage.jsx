@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/pages/_creationpage.scss";
 import "../styles/components-style/_btn.scss";
-import { redirect } from "react-router-dom";
 
 const generateUniqueKey = () => {
   const timeStamp = new Date().getTime();
@@ -19,14 +18,15 @@ function Creationpage({ title }) {
 
   const [showModal, setShowModal] = useState(false);
 
-  const redirectPageAfterSuccess = () => {
-    if (!formData.title || !formData.noteText) {
-      console.error("you have to write your note before sending it");
-    } else {
-      console.log("success !");
-      return redirect("/");
-    }
-  };
+  async function redirectPageAfterSuccess() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 1500);
+    }).then(() => {
+      window.location.assign("/");
+    });
+  }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -45,7 +45,7 @@ function Creationpage({ title }) {
     });
 
     setShowModal(true);
-    // redirectPageAfterSuccess();
+    redirectPageAfterSuccess();
   };
 
   return (
@@ -87,11 +87,7 @@ function Creationpage({ title }) {
             />
           </label>
           <div className='button-bloc'>
-            <button
-              type='submit'
-              className='btn-note'
-              onClick={() => setShowModal(true)}
-            >
+            <button type='submit' className='btn-note'>
               <p>Add a note</p>
               <div className='round-container'>
                 <div className='plus-sign'></div>
@@ -102,18 +98,14 @@ function Creationpage({ title }) {
       </section>
       {showModal && (
         <div className={`dialog-bloc ${showModal ? "active" : ""}`}>
-          <dialog
-            className='successModal'
-            open
-            onClose={() => setShowModal(false)}
-          >
+          <dialog className='successModal' open>
             <p className='success-message'>Your note has been sent correctly</p>
             <span className='emote-success'>😃✔️</span>
             <span className='underline'></span>
             <p className='redirection-p'>redirection in progress</p>
-            <div class='snippet' data-title='dot-flashing'>
-              <div class='stage'>
-                <div class='dot-flashing'></div>
+            <div className='snippet' data-title='dot-flashing'>
+              <div className='stage'>
+                <div className='dot-flashing'></div>
               </div>
             </div>
           </dialog>
