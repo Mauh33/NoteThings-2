@@ -54,7 +54,7 @@ function Creationpage({ title }) {
         <h2>{title}</h2>
         <form
           action=''
-          method='get'
+          method='post'
           className='form-bloc'
           onSubmit={handleSubmit}
         >

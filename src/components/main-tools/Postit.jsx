@@ -1,12 +1,16 @@
 import { useState } from "react";
 import "../../styles/components-style/_postIt.scss";
 
-function PostIt({ title, description, id, onDelete }) {
+function PostIt({ title, description, id, onDelete, onModify }) {
   const [visibleElement, setVisibility] = useState(true);
 
   const removeElement = () => {
     onDelete(id);
     setVisibility(false);
+  };
+
+  const modifyElement = () => {
+    onModify(id);
   };
 
   if (!visibleElement) {
@@ -20,6 +24,16 @@ function PostIt({ title, description, id, onDelete }) {
       </div>
       <div className='postIt-description-bloc'>
         <p className='postIt-description-p'>{description}</p>
+      </div>
+      <div className='button-bloc'>
+        <button type='button' className='btn-note' onClick={modifyElement}>
+          <p>Modify note</p>
+          <div className='round-container'>
+            <div>
+              <i className='fa fa-edit'></i>
+            </div>
+          </div>
+        </button>
       </div>
       <div className='button-bloc'>
         <button type='button' className='btn-note' onClick={removeElement}>
