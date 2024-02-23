@@ -16,6 +16,18 @@ function Creationpage({ title }) {
     noteText: "",
   });
 
+  const [showModal, setShowModal] = useState(false);
+
+  async function redirectPageAfterSuccess() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 1500);
+    }).then(() => {
+      window.location.assign("/");
+    });
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -32,9 +44,8 @@ function Creationpage({ title }) {
       noteText: "",
     });
 
-    alert(
-      "Your note has been added to your list, click on NoteThings to have a view"
-    );
+    setShowModal(true);
+    redirectPageAfterSuccess();
   };
 
   return (
@@ -55,6 +66,7 @@ function Creationpage({ title }) {
               id='title'
               value={formData.title}
               placeholder='Enter title'
+              minLength={5}
               maxLength={30}
               onChange={e =>
                 setFormData({ ...formData, title: e.target.value })
@@ -67,6 +79,7 @@ function Creationpage({ title }) {
               placeholder='Enter description'
               name='text'
               value={formData.noteText}
+              minLength={10}
               maxLength={120}
               onChange={e =>
                 setFormData({ ...formData, noteText: e.target.value })
@@ -83,6 +96,21 @@ function Creationpage({ title }) {
           </div>
         </form>
       </section>
+      {showModal && (
+        <div className={`dialog-bloc ${showModal ? "active" : ""}`}>
+          <dialog className='successModal' open>
+            <p className='success-message'>Your note has been sent correctly</p>
+            <span className='emote-success'>😃✔️</span>
+            <span className='underline'></span>
+            <p className='redirection-p'>redirection in progress</p>
+            <div className='snippet' data-title='dot-flashing'>
+              <div className='stage'>
+                <div className='dot-flashing'></div>
+              </div>
+            </div>
+          </dialog>
+        </div>
+      )}
     </>
   );
 }

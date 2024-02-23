@@ -43,6 +43,133 @@ textarea {
   height: 60px;
 }
 
+.dialog-bloc {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 5ms ease-in-out, backdrop-filter 8ms ease-in;
+}
+
+.dialog-bloc.active {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0.15rem);
+}
+
+.successModal {
+  min-width: 300px;
+  width: 35vw;
+  height: 25vh;
+  border-radius: 2.7rem;
+  border-style: none;
+  box-shadow: 1px 2px 15px -8px hsl(229, 22%, 40%);
+  position: absolute;
+  z-index: 2;
+  top: 45%;
+  left: 37%;
+  animation: dialog-appear 0.5s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.success-message {
+  color: $primary-color;
+  font-weight: 800;
+  font-size: 1.4rem;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.underline {
+  width: 80%;
+  height: 3px;
+  background-color: $third-color;
+  position: relative;
+  left: 10%;
+}
+
+.emote-success {
+  font-size: $ft-small;
+  text-align: center;
+}
+
+.redirection-p {
+  align-self: center;
+  font-size: $ft-small;
+  font-weight: 550;
+}
+
+@keyframes dialog-appear {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.snippet {
+  align-self: center;
+}
+
+.dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: $element-color;
+  color: $element-color;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+}
+.dot-flashing::before,
+.dot-flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: $element-color;
+  color: $element-color;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: $element-color;
+  color: $element-color;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+  0% {
+    background-color: $element-color;
+  }
+  50%,
+  100% {
+    background-color: rgba($color: #e2e4ebd4, $alpha: 1);
+  }
+}
+
 @include from(lg) {
   textarea {
     width: 300px;
