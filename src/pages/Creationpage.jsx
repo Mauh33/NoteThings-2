@@ -22,7 +22,10 @@ function Creationpage({ title }) {
     const noteId = generateUniqueKey();
     const newNote = { id: noteId, ...formData };
 
-    onAdd(newNote);
+    const existingNotes =
+      JSON.parse(window.localStorage.getItem("notes")) || [];
+    const updatedNotes = [...existingNotes, newNote];
+    window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
 
     setFormData({
       title: "",
@@ -32,14 +35,6 @@ function Creationpage({ title }) {
     alert(
       "Your note has been added to your list, click on NoteThings to have a view"
     );
-  };
-
-  const handleAddNote = newNote => {
-    const existingNotes =
-      JSON.parse(window.localStorage.getItem("notes")) || [];
-    const updatedNotes = [...existingNotes, newNote];
-    window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
-    console.log("New note added:", newNote);
   };
 
   return (
