@@ -16,6 +16,9 @@
 }
 
 .modal-modifier-bloc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -34,14 +37,13 @@
 }
 
 .modal-modifier-bloc .form-bloc {
-  box-shadow: 1px 2px 15px -8px hsl(229, 22%, 40%);
-  position: absolute;
+  box-shadow: 1px 2px 20px 5px hsl(229, 22%, 40%, 0.7);
+  position: relative;
   z-index: 2;
-  top: 20%;
-  left: 20vw;
+
   width: 40vw;
   max-width: 350px;
-  max-height: 60vh;
+  max-height: 50vh;
   animation: dialog-appear 0.5s ease forwards;
 }
 
@@ -49,6 +51,9 @@
   .postIt-section {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .modal-modifier-bloc .form-bloc {
   }
 }
 
