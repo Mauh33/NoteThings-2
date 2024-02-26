@@ -31,6 +31,11 @@ function Creationpage({ title }) {
   const handleSubmit = e => {
     e.preventDefault();
 
+    if (!formData.title || !formData.noteText) {
+      alert("Please, complete the fields before submit");
+      return;
+    }
+
     const noteId = generateUniqueKey();
     const newNote = { id: noteId, ...formData };
 
@@ -39,13 +44,13 @@ function Creationpage({ title }) {
     const updatedNotes = [...existingNotes, newNote];
     window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
 
+    setShowModal(true);
+    redirectPageAfterSuccess();
+
     setFormData({
       title: "",
       noteText: "",
     });
-
-    setShowModal(true);
-    redirectPageAfterSuccess();
   };
 
   return (

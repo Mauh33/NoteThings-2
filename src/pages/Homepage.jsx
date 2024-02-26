@@ -5,6 +5,7 @@ import PostIt from "../components/main-tools/Postit";
 function HomePage({ title }) {
   const [data, setData] = useState([]);
   const [showModifyModal, setShowModal] = useState(false);
+  const [editingNote, setEditingNote] = useState(null);
 
   const handleDeleteNote = noteId => {
     const updatedNotes = data.filter(note => note.id !== noteId);
@@ -12,16 +13,31 @@ function HomePage({ title }) {
     window.localStorage.setItem("notes", JSON.stringify(updatedNotes));
   };
 
-  const handleModifyNote = noteId => {
-    const updatedNotes = data.filter(note => note.id == noteId);
-    if (updatedNotes) {
+  const waitForANoteChange = noteId => {
+    const noteToEdit = data.find(note => note.id == noteId);
+    if (noteToEdit) {
+      setEditingNote(noteToEdit);
       setShowModal(true);
     }
-    console.log("récupération de la note", updatedNotes);
+    console.log("récupération de la note", noteToEdit);
   };
 
   const handleModifySubmit = e => {
     e.preventDefault();
+
+    const indexOfNote = data.findIndex(note => note.id === editingNote.id);
+    if (indexOfNote !== -1) {
+      const updatedNote = [...data];
+      updatedNote[indexOfNote] = editingNote;
+      setData(updatedNote);
+      window.localStorage.setItem("notes", JSON.stringify(updatedNote));
+    }
+
+    setTimeout(() => {
+      setShowModal(false);
+    }, 1000);
+
+    setEditingNote(null);
   };
 
   useEffect(() => {
@@ -42,7 +58,7 @@ function HomePage({ title }) {
               title={item.title}
               description={item.noteText}
               onDelete={handleDeleteNote}
-              onModify={handleModifyNote}
+              onModify={waitForANoteChange}
             />
           ))
         ) : (
@@ -68,7 +84,9 @@ function HomePage({ title }) {
                 placeholder='Enter title'
                 minLength={5}
                 maxLength={30}
-                onChange={e => setData({ ...data, title: e.target.value })}
+                onChange={e =>
+                  setEditingNote({ ...editingNote, title: e.target.value })
+                }
               />
             </label>
             <label>
@@ -79,7 +97,9 @@ function HomePage({ title }) {
                 value={data.noteText}
                 minLength={10}
                 maxLength={120}
-                onChange={e => setData({ ...data, noteText: e.target.value })}
+                onChange={e =>
+                  setEditingNote({ ...editingNote, noteText: e.target.value })
+                }
               />
             </label>
             <div className='button-bloc'>
