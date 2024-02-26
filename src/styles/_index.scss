@@ -87,6 +87,10 @@ label {
   font-size: $ft-small;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .main-content {
   width: 90vw;
   max-width: 1000px;

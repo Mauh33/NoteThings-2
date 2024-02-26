@@ -75,7 +75,7 @@ function HomePage({ title }) {
             onSubmit={handleModifySubmit}
           >
             <label>
-              your title's note :
+              <p>your title's note :</p>
               <input
                 type='text'
                 name='title'
@@ -90,7 +90,7 @@ function HomePage({ title }) {
               />
             </label>
             <label>
-              A description for your note:
+              <p>A description for your note:</p>
               <textarea
                 placeholder='Enter description'
                 name='text'
