@@ -1,46 +1,12 @@
 @import "../variables";
 @import "../mixins";
+@import "../components-style/form";
 @import "../placeholders";
 
 .note-form-section {
-  width: 80%;
-  margin: auto;
   max-height: max-content;
-  height: 60vh;
   @extend %begin-flex-column;
   @extend %flex-column-template-evenly;
-}
-
-.form-bloc {
-  margin-top: 20px;
-  width: 100%;
-  max-width: 582px;
-  max-height: 500px;
-  height: 230px;
-  border-radius: 10px;
-  background-color: $third-color;
-  border: 2px solid $element-color;
-  @include flexbox(
-    $direction: column,
-    $wrap: wrap,
-    $justify: space-between,
-    $align: start
-  );
-
-  label {
-    margin: 3% 0 0 5%;
-    width: 80%;
-    max-width: 300px;
-  }
-
-  .button-bloc {
-    margin: 0 20px 20px 0;
-  }
-}
-
-textarea {
-  width: 200px;
-  height: 60px;
 }
 
 .dialog-bloc {
@@ -171,7 +137,25 @@ textarea {
 }
 
 @include from(lg) {
+  .form-bloc {
+    min-height: 350px;
+  }
+
   textarea {
     width: 300px;
+  }
+
+  .btn-note {
+    width: 16rem;
+    height: 5rem;
+  }
+  .button-bloc p {
+    font-size: $ft-medium;
+  }
+
+  .round-container {
+    width: 4rem;
+    height: 3.5rem;
+    margin-right: 7px;
   }
 }

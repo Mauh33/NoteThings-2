@@ -25,23 +25,25 @@ function PostIt({ title, description, id, onDelete, onModify }) {
       <div className='postIt-description-bloc'>
         <p className='postIt-description-p'>{description}</p>
       </div>
-      <div className='button-bloc'>
-        <button type='button' className='btn-note' onClick={modifyElement}>
-          <p>Modify note</p>
-          <div className='round-container'>
-            <div>
-              <i className='fa fa-edit'></i>
+      <div className='btn-group'>
+        <div className='button-bloc'>
+          <button type='button' className='btn-note' onClick={modifyElement}>
+            <p>Modify note</p>
+            <div className='round-container'>
+              <div>
+                <i className='fa fa-edit'></i>
+              </div>
             </div>
-          </div>
-        </button>
-      </div>
-      <div className='button-bloc'>
-        <button type='button' className='btn-note' onClick={removeElement}>
-          <p>Delete note</p>
-          <div className='round-container'>
-            <div className='minus-sign'></div>
-          </div>
-        </button>
+          </button>
+        </div>
+        <div className='button-bloc'>
+          <button type='button' className='btn-note' onClick={removeElement}>
+            <p>Delete note</p>
+            <div className='round-container'>
+              <div className='minus-sign'></div>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );

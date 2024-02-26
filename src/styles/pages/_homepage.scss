@@ -1,16 +1,18 @@
 @import "../variables";
 @import "../mixins";
 @import "../placeholders";
+@import "../components-style/form";
 
 .postIt-section {
-  width: 300px;
   @include flexbox($direction: column, $justify: space-evenly);
-  margin: auto;
 }
 
-.postIt-description-bloc {
-  height: auto;
-  max-height: 20vh;
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 12rem;
 }
 
 .modal-modifier-bloc {
@@ -35,29 +37,25 @@
   box-shadow: 1px 2px 15px -8px hsl(229, 22%, 40%);
   position: absolute;
   z-index: 2;
-  top: 30%;
-  left: 30%;
+  top: 20%;
+  left: 20vw;
   width: 40vw;
   max-width: 350px;
+  max-height: 60vh;
   animation: dialog-appear 0.5s ease forwards;
 }
 
 @include from(md) {
   .postIt-section {
-    max-width: 800px;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
 @include from(lg) {
-  .postIt-section h2 {
-    flex-basis: 90%;
-  }
   .postIt-section {
-    @include flexbox($direction: row, $justify: space-evenly, $wrap: wrap);
-    width: 80%;
-    margin: auto;
-    min-height: max-content;
-    height: 70%;
-    max-height: 1300px;
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
   }
 }
