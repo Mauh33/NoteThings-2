@@ -1,0 +1,42 @@
+.form-bloc {
+  min-width: 300px;
+  width: 100%;
+  max-width: 40vw;
+  min-height: 40rem;
+  height: 100%;
+  border-radius: 10px;
+  background-color: $third-color;
+  box-shadow: 2px 2px 10px -1px $element-color;
+  @include flexbox(
+    $direction: column,
+    $wrap: wrap,
+    $justify: space-evenly,
+    $align: start
+  );
+
+  label {
+    width: 80%;
+    max-width: 300px;
+    margin-left: 10%;
+    margin-bottom: 1.2rem;
+  }
+
+  .button-bloc {
+    align-self: flex-end;
+    margin: 0 26px 0 0;
+  }
+}
+
+.label-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-title input {
+  height: 4vh;
+}
+
+textarea {
+  min-width: 100%;
+  min-height: 18vh;
+}
