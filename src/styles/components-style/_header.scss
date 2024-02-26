@@ -1,15 +1,17 @@
 @import "../mixins";
 @import "../variables";
 
-header {
-  width: 100%;
+.header {
+  position: relative;
   top: 0;
   left: 0;
-  height: 14vh;
+  right: 0;
+  height: 12vh;
   background-color: $primary-color;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 5vh;
 }
 
 h1 {

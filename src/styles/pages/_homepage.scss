@@ -4,7 +4,7 @@
 
 .postIt-section {
   @include flexbox($direction: column, $justify: space-evenly);
-  margin: 3rem auto;
+  margin: 4rem auto;
 }
 
 .btn-group {
@@ -13,6 +13,10 @@
   justify-content: center;
   flex-wrap: wrap;
   height: 12rem;
+}
+
+h2 {
+  width: 80vw;
 }
 
 .modal-modifier-bloc {
@@ -44,19 +48,26 @@
   animation: dialog-appear 0.5s ease forwards;
 }
 
+@include from(sm) {
+  h2 {
+    width: 80vw;
+  }
+}
+
 @include from(md) {
   .postIt-section {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  h2 {
-    flex-basis: 90%;
-  }
 }
 
 @include from(lg) {
   .postIt-section {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+  }
+  h2 {
+    min-width: 65vw;
   }
 }
