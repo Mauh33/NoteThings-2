@@ -63,8 +63,8 @@ function Creationpage({ title }) {
           className='form-bloc'
           onSubmit={handleSubmit}
         >
-          <label>
-            A title for your note:
+          <label className='label-title'>
+            <p>A title for your note:</p>
             <input
               type='text'
               name='title'
@@ -79,7 +79,7 @@ function Creationpage({ title }) {
             />
           </label>
           <label>
-            A description for your note:
+            <p>A description for your note:</p>
             <textarea
               placeholder='Enter description'
               name='text'

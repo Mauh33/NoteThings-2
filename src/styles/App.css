@@ -28,8 +28,20 @@ body,
   min-height: 110vh;
 }
 
-img {
+img,
+input,
+textarea {
   border-style: none;
+}
+
+label p {
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+}
+
+input,
+textarea {
+  box-shadow: 1px 5px 3px -2px rgba(0, 0, 0, 0.208);
 }
 
 body {
@@ -66,14 +78,31 @@ a {
   font-family: "Ubuntu";
 }
 
-p {
+p,
+label {
   font-size: 1.6rem;
 }
 
 .main-content {
   width: 90vw;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   flex: 1;
   overflow: hidden;
+}
+
+section {
+  margin: 5rem auto;
+}
+
+@media only screen and (min-width: 575px) {
+  h2 {
+    font-size: 1.8rem;
+    flex-basis: 90%;
+  }
+}
+@media only screen and (min-width: 991px) {
+  h2 {
+    font-size: 2rem;
+  }
 }/*# sourceMappingURL=App.css.map */

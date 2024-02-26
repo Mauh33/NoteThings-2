@@ -32,8 +32,20 @@ body,
   min-height: 110vh;
 }
 
-img {
+img,
+input,
+textarea {
   border-style: none;
+}
+
+label p {
+  margin-bottom: 12px;
+  font-size: $ft-small;
+}
+
+input,
+textarea {
+  box-shadow: 1px 5px 3px -2px rgba(0, 0, 0, 0.208);
 }
 
 body {
@@ -70,14 +82,32 @@ a {
   font-family: "Ubuntu";
 }
 
-p {
+p,
+label {
   font-size: $ft-small;
 }
 
 .main-content {
   width: 90vw;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   flex: 1;
   overflow: hidden;
+}
+
+section {
+  margin: 5rem auto;
+}
+
+@include from(md) {
+  h2 {
+    font-size: $ft-medium;
+    flex-basis: 90%;
+  }
+}
+
+@include from(lg) {
+  h2 {
+    font-size: $ft-large;
+  }
 }
