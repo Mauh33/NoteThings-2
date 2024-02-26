@@ -3,14 +3,16 @@
 @import "../placeholders";
 
 .postIt-section {
-  width: 300px;
   @include flexbox($direction: column, $justify: space-evenly);
-  margin: auto;
+  margin: 3rem auto;
 }
 
-.postIt-description-bloc {
-  height: auto;
-  max-height: 20vh;
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 12rem;
 }
 
 .modal-modifier-bloc {
@@ -44,20 +46,17 @@
 
 @include from(md) {
   .postIt-section {
-    max-width: 800px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  h2 {
+    flex-basis: 90%;
   }
 }
 
 @include from(lg) {
-  .postIt-section h2 {
-    flex-basis: 90%;
-  }
   .postIt-section {
-    @include flexbox($direction: row, $justify: space-evenly, $wrap: wrap);
-    width: 80%;
-    margin: auto;
-    min-height: max-content;
-    height: 70%;
-    max-height: 1300px;
+    width: 90%;
+    max-width: 1200px;
   }
 }

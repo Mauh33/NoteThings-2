@@ -2,21 +2,24 @@
 @import "./../mixins";
 @import "../placeholders";
 
-$max-width-Postit: 250px;
-$min-height-Postit: 250px;
+$max-width-Postit: 300px;
+$min-height-Postit: 300px;
 $postItWidth: min($max-width-Postit, 100%);
 
 .postIt-bloc {
   width: $postItWidth;
-  min-height: $min-height-Postit;
-  height: auto;
-  max-height: 450px;
+  min-width: 250px;
+  height: $min-height-Postit;
   background-color: rgba(175, 191, 255, 0.35);
   border-radius: 14.04px;
   border: 4.68px solid $third-color;
   @include flexbox($direction: column, $wrap: wrap, $justify: space-between);
   flex-wrap: nowrap;
   margin: 20px 0 40px;
+}
+
+.postIt-bloc {
+  margin: 10px;
 }
 
 .postIt-title-bloc,
@@ -53,6 +56,7 @@ $postItWidth: min($max-width-Postit, 100%);
   @include flexbox($direction: column, $justify: start, $align: start);
   width: 80%;
   height: 80%;
+  max-height: 20vh;
 }
 
 .postIt-title,
@@ -68,11 +72,11 @@ $postItWidth: min($max-width-Postit, 100%);
 }
 
 .button-bloc {
-  margin: 0 12px 12px 0;
+  align-self: center;
 }
 
 .fa-edit {
   font-size: $ft-small;
-  padding: 7px 8px 0;
+  padding: 27% 28% 0;
   color: white;
 }
