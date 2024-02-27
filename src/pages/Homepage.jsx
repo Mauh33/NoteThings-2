@@ -41,7 +41,7 @@ function HomePage(title) {
             />
           ))
         ) : (
-          <p>You don't have any notes for the moment</p>
+          <p>{`You don't have any notes for the moment`}</p>
         )}
       </section>
       {modalToShow && (
