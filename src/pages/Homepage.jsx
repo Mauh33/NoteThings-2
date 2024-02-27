@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import PostIt from "../components/main-tools/Postit";
 import Form from "../components/Form/Form";
 
-function HomePage({ title }) {
+function HomePage(title) {
   const [data, setData] = useState([]);
   const [editingNoteId, setEditingNoteId] = useState(null);
   const [modalToShow, setShowModal] = useState(false);

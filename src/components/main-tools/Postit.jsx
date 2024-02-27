@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../styles/components-style/_postIt.scss";
 import "../../styles/components-style/_btn.scss";
 
-function PostIt({ title, description, id, onEdit, onDelete }) {
+function PostIt(title, description, id, onEdit, onDelete) {
   const [visibleElement, setVisibility] = useState(true);
 
   const handleEdit = () => {
