@@ -2,7 +2,7 @@ import { useState } from "react";
 import Form from "../components/Form/Form";
 import "../styles/pages/_creationpage.scss";
 
-function Creationpage(title) {
+function Creationpage({ title }) {
   const [showModal, setShowModal] = useState(false);
 
   return (

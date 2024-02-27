@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../../styles/components-style/_form.scss";
 import "../../styles/components-style/_btn.scss";
 
-function Form(editingNoteId, setEditingNoteId, setShowModal) {
+function Form({ editingNoteId, setEditingNoteId, setShowModal }) {
   const [formData, setFormData] = useState({
     title: "",
     noteText: "",
