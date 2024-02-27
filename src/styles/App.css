@@ -83,6 +83,15 @@ label {
   font-size: 1.6rem;
 }
 
+label,
+textarea {
+  margin: 0 auto;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .main-content {
   width: 90vw;
   max-width: 1000px;
