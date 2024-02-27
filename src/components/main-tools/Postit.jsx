@@ -1,16 +1,17 @@
 import { useState } from "react";
 import "../../styles/components-style/_postIt.scss";
+import "../../styles/components-style/_btn.scss";
 
-function PostIt({ title, description, id, onDelete, onModify }) {
+function PostIt({ title, description, id, onEdit, onDelete }) {
   const [visibleElement, setVisibility] = useState(true);
 
-  const removeElement = () => {
-    onDelete(id);
-    setVisibility(false);
+  const handleEdit = () => {
+    onEdit(id);
   };
 
-  const modifyElement = () => {
-    onModify(id);
+  const handleDelete = () => {
+    onDelete(id);
+    setVisibility(false);
   };
 
   if (!visibleElement) {
@@ -27,7 +28,7 @@ function PostIt({ title, description, id, onDelete, onModify }) {
       </div>
       <div className='btn-group'>
         <div className='button-bloc'>
-          <button type='button' className='btn-note' onClick={modifyElement}>
+          <button type='button' className='btn-note' onClick={handleEdit}>
             <p>Modify note</p>
             <div className='round-container'>
               <div>
@@ -37,7 +38,7 @@ function PostIt({ title, description, id, onDelete, onModify }) {
           </button>
         </div>
         <div className='button-bloc'>
-          <button type='button' className='btn-note' onClick={removeElement}>
+          <button type='button' className='btn-note' onClick={handleDelete}>
             <p>Delete note</p>
             <div className='round-container'>
               <div className='minus-sign'></div>
