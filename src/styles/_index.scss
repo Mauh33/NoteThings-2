@@ -87,6 +87,11 @@ label {
   font-size: $ft-small;
 }
 
+label,
+textarea {
+  margin: 0 auto;
+}
+
 button:hover {
   cursor: pointer;
 }
