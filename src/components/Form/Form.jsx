@@ -130,8 +130,8 @@ function Form({ editingNoteId, setEditingNoteId, setShowModal }) {
 
 Form.propTypes = {
   editingNoteId: PropTypes.string,
-  setEditingNoteId: PropTypes.element,
-  setShowModal: PropTypes.element,
+  setEditingNoteId: PropTypes.func,
+  setShowModal: PropTypes.func,
 };
 
 export default Form;
