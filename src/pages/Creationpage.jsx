@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import Form from "../components/Form/Form";
 import "../styles/pages/_creationpage.scss";
 
@@ -29,5 +30,9 @@ function Creationpage({ title }) {
     </>
   );
 }
+
+Creationpage.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Creationpage;

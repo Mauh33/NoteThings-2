@@ -1,4 +1,5 @@
 import "../styles/pages/_homepage.scss";
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import PostIt from "../components/main-tools/Postit";
 import Form from "../components/Form/Form";
@@ -56,5 +57,9 @@ function HomePage({ title }) {
     </>
   );
 }
+
+HomePage.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default HomePage;

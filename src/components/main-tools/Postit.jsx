@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import "../../styles/components-style/_postIt.scss";
 import "../../styles/components-style/_btn.scss";
 
@@ -49,5 +50,13 @@ function PostIt({ title, description, id, onEdit, onDelete }) {
     </div>
   );
 }
+
+PostIt.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  id: PropTypes.string,
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func,
+};
 
 export default PostIt;

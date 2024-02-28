@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import "../../styles/components-style/_form.scss";
 import "../../styles/components-style/_btn.scss";
 
@@ -126,5 +127,11 @@ function Form({ editingNoteId, setEditingNoteId, setShowModal }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  editingNoteId: PropTypes.string,
+  setEditingNoteId: PropTypes.element,
+  setShowModal: PropTypes.element,
+};
 
 export default Form;
